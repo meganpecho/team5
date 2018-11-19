@@ -1,0 +1,2 @@
+class JobSearch < ApplicationRecord
+end

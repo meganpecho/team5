@@ -1,0 +1,43 @@
+<div class="sessionform ui container middle aligned center aligned grid">
+  <div class="column">
+    <form class="ui large stacked segment form" action="/account" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="IN66Gc87ZvZXM5tELBb9AU40e5ELuo5CwXqg8OSBRLyW2Pni76W1RPOX25kmOyqGr4CUKtkJXXam0g1dQFsMfA==" type="hidden">
+    
+    <!--TODO ALLOWS USERS TO CHANGE CERTIAN THINGs -->
+        <div class="field">
+          <label for="user_name">Name</label>
+          <input id="user_name" name="user[name]" type="text" value="<%= @user.name %>">
+        </div>
+        
+        <div class="field">
+          <label for="user_email">Email</label>
+          <input id="user_email" name="user[email]" type="text" value="<%= @user.email %>" disabled>
+        </div>
+        
+        <div class="field">
+          <label for="user_major">Major</label>
+          <select name="user[major_id]" class="major_select"></select>
+        </div>
+        <p>Only set password if you want to change it: </p>
+        <div class="field">
+          <label for="user_password">Password</label>
+          <input name="user[password]" type="password">
+        </div>
+        
+        <div class="field">
+          <label for="user_password_confirmation">Confirmation</label>
+          <input name="user[password_confirmation]" type="password">
+        </div>
+      
+        <div class="actions">
+          <input name="commit" value="Update Account" class="ui primary button" data-disable-with="Sign up" type="submit">
+        </div>
+      
+    </form>
+  </div>
+</div>
+
+<script>
+  var majors = <%= @majors.html_safe %>;
+  
+  $('.major_select').select2({ data: majors.results });
+</script>

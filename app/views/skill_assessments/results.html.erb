@@ -1,0 +1,24 @@
+
+<div class=" ui grid">
+    <div class="eight wide column centered floated">
+        <h4 class="">
+            Based on the <%= @search_type %> you selected, here's your recommended plan to proceeed!
+        </h4>
+    </div>
+</div>
+<div>
+    <div class="results ten wide column">
+        <% if true %> <!-- If classes are chosen -->
+            <p class="ui segment">  
+                <h5>Based on the following courses you've taken:</h5>
+                <% current_user.courses.each do |course|%>
+                    <%= "#{course.subject} #{course.course_num} #{course.title}" %>
+                    <br>
+                <% end %>
+                <h5>We recommended the following jobs:</h5>
+            </p>
+        <% else %> <!-- If a career is chosen -->
+            
+	    <% end %>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.userContent{
+    
+}
+.list{
+    height: 500px;
+    overflow: scroll;
+}
+
+.list li{
+    cursor: pointer;
+    list-style: none;
+}
+
+.list li:hover{
+    background-color: gray;
+}
+.searchable{
+    margin:0 auto;
+}
+.column{
+    max-width:100%;
+}
+
+.classLists ul{
+    padding: 0!important;
+}
+
+.classLists ul li{
+    padding: 5px 10px!important;
+}
+
+.account-info{
+    .segments{
+        display: flex;
+        flex-direction: column;
+        height: 350px;
+        overflow: auto;
+    }
+    h3{
+        font-size: 2em;
+    }
+}
+
+.search{
+    .segment a {
+        float:right;
+    }
+}
+
+.jobSearch {
+    &.container {
+        display: flex;
+        padding-top: 40px;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    &.btn-container {
+        display: flex;
+        flex-flow: row wrap;
+        padding-top: 20px;
+        align-items: center;
+        :first-child {
+            padding-left: 85px;
+            padding-right: 85px;
+        }
+        p.or {
+            padding: 0 60px;
+        }
+    }
+    
+}
+
+// button#skillButton:hover{
+//     // font-size:50em;
+// }
+
+button#skillButton.active:focus{
+    background-color: #f17000!important;
+    color:#fff !important;
+    border: none;
+}
+
+button#skillButton:focus{
+    background-color: inherit!important;
+    color: #f17000!important;
+    border-style:solid!important;
+    border-color: #f17000!important;
+    border-width: 2px;
+}
+
+button#skillButton {
+    margin: 5px 2px 5px 2px;
+}

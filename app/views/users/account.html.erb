@@ -1,0 +1,114 @@
+<p id="notice"><%= notice %></p>
+<div class="dashboardHeader">
+  <h3>STUDENT DASHBOARD</h3>
+  <hr class="blue"/>
+</div>
+<div class="ui container">
+  <div class="dashboardContent">
+    <div class="ui row jobSearch container">
+      <div class="jobSearch btn-container" >
+        <a class="huge ui teal button" href="/jobs/match">FIND A JOB</a>
+        <p class="or">- OR -</p>
+        <a class="huge ui teal button" href="/courses/find">FIND CLASSES TO TAKE</a>
+      </div>
+    </div>
+    </br>
+    
+     <div class="ui pointing secondary two item menu">
+      <a class="item active" data-tab="courses" >COURSES & SEARCHES</a>
+      <a class="item" data-tab="account" >ACCOUNT</a>
+    </div>
+    <div class="ui tab active" data-tab="courses" >
+      <div class="ui two column grid account-info">
+        <div class="column">
+          <div class="column-header">
+            <h3>Courses Taken</h3>
+            <a class="mini ui inverted green button" href="/courses/add">Edit Courses</a>
+          </div>
+          <div class="ui segments courses">
+            <% @user.courses.each do |course|%>
+            <p class="ui segment">
+              <%= course.full_title %>
+            </p>
+            <% end %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-header">
+            <h3>Saved Searches</h3>
+            <a class="mini ui inverted green button" href="/jobs/match">Start New Job Search</a>
+          </div>
+          <div class="ui segments search">
+            <% @searches_desc.each do |search| %>
+            <div class="ui segment">
+              <%= search.title %> <a class="ui button" href="/searches/<%= search.id %>">View</a>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="account">
+      <div class="ui two column grid account-info">
+        <div class="column account-column">
+          <div class="column-header">
+            <h3>Account Info</h3>
+            <a class="mini ui inverted green button" href="/account/edit">Edit Account</a>
+          </div>
+          <div class="ui segments account">
+            <p class="ui segment">
+              <strong>User Name:</strong>
+              <%= @user.name %>
+            </p>
+            <p class="ui segment">
+              <strong>Email Address:</strong>
+              <%= @user.email %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="ui pointing secondary three item menu">
+      <a class="item active" data-tab="accountDet" >ACCOUNT DETAILS</a>
+      <a class="item" data-tab="courseTaken" >COURSES TAKEN</a>
+      <a class="item" data-tab="savedCourse">SAVED COURSE PATHS</a>
+    </div>
+    <div class="ui tab active" data-tab="accountDet" >
+      <div class="ui segments">
+          <a class="ui primary top attached large button" href="/account/edit">Edit Account</a>
+          <p class="ui segment">
+            <strong>User Name:</strong>
+            <%= @user.name %>
+          </p>
+          <p class="ui segment">
+            <strong>Email Address:</strong>
+            <%= @user.email %>
+          </p>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="courseTaken">
+      <div class="ui segments">
+            <a class="ui primary top attached large button" href="/courses/add">Edit Courses</a>
+          <% @user.courses.each do |course|%>
+            <p class="ui segment">
+              <%= course.full_title %>
+            </p>
+          <% end %>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="savedCourse">
+      <div class="ui segments">
+          <% @searches.each do |search| %>
+          <div class="ui segment">
+            <%= search.title %>
+          </div>
+          <% end %>
+      </div>
+    </div>-->
+  </div>
+</div>
+<!--
+<script>
+  $('.menu .item').tab();
+</script-->

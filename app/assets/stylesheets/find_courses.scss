@@ -1,0 +1,19 @@
+.findCourses {
+    &.container {
+        display: flex;
+        padding-top: 40px;
+        flex-flow: column wrap;
+        align-items: left;
+    }
+    .btn-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding-top: 20px;
+    }
+}
+
+// button#skillButton
+//     {
+//         margin: 0 !important
+//     }

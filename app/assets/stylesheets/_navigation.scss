@@ -1,0 +1,164 @@
+@import 'mixins';
+.nav {
+	background-color: $nav;
+	position: fixed;
+	width: 100%;
+	height: 70px;
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: repeat(2, [col-start] 1fr);
+	// justify-content: space-between;
+	z-index: 20;
+	.brandInfo {
+		grid-column: col-start / span 1;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+	    align-items: center;
+		color: white;
+		text-decoration: none;
+		.name {
+			font-family: $h1;
+	    	color: white;
+			padding: 5px 10px;
+			margin: 10px;
+			font-size: 20px;
+			text-decoration: none;
+	    }
+		&:hover {
+			cursor: pointer;
+			color: darken(white, 20%);
+		}
+	}
+	.button-ctn {
+		grid-column: 2 / span 1;
+	    display: flex;
+	    flex-flow: row wrap;
+	    justify-content: flex-end;
+	    align-items: center;
+		.links {
+			display: none;
+			flex-flow: row wrap;
+			justify-content: flex-end;
+			align-items: center;
+			ul {
+				list-style: none;
+				display: inline-flex;
+				margin-top: 35px;
+				li {
+					color: $li;
+					padding: 10px 10px;
+					margin: 10px;
+					font-family: $h4;
+					font-size: 50px;
+					&:hover {
+						color: darken(white, 20%);
+						cursor: pointer;
+					}
+					a {
+						color: white;
+						text-decoration: none;
+						&:hover {
+							cursor: pointer;
+							color: darken(white, 20%);
+						}
+					}
+				}
+			}
+		}
+		.menu-btn {
+			display: flex;
+			flex-flow: row wrap;
+			justify-self: flex-end;
+			align-items: center;
+			padding: 0 20px;
+			.menu-toggle {
+				position: relative;
+				display: block;
+				margin: auto;
+				height: ($offset*2) + $bar_height;
+				width: $size;
+				cursor: pointer;
+				.bars {
+					@include bar;
+					position: absolute;
+					top: 50%; left: 0;
+					margin-top: -($bar_height/2);
+					&:before,
+					&:after {
+						@include bar;
+						content: "";
+						position: absolute;
+					}
+	
+					&:before { top: -$offset; }
+					&:after { bottom: -$offset; }
+				}
+			}
+	
+			.active {
+				.bars {
+					background-color: transparent;
+					&:before {
+						top: 0;
+						transform: rotate(45deg);
+					}
+					&:after {
+						bottom: 0;
+						transform: rotate(-45deg);
+					}
+				}
+			}
+		}
+	}
+	&.activeNav {
+		height: 100%;
+		width: 100%;
+		display: inline-block;
+		.brandInfo {
+			display: none;
+		}
+		.button-ctn {
+			position: relative;
+		    display: flex;
+		    flex-flow: column nowrap;
+			.menu-btn {
+				align-self: flex-end;
+				padding-top: 22px;
+			}
+			.log-btn {
+				display: none;
+			}
+			.links {
+				clear: both;
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				margin: 0px;
+				ul {
+					list-style: none;
+					display: block;
+					li {
+						color: $li;
+						padding: 10px 10px;
+						margin: 10px;
+						font-size: 20px;
+						&:hover {
+							color: darken(white, 20%);
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
+
+@media (min-width: 384px) {
+	.nav .brandInfo .name {
+		font-size: 30px;
+	}
+}

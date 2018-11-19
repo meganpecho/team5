@@ -1,0 +1,48 @@
+<% if @search.ready %>
+<div class="ui container">
+    <div class="ui padded container" style="margin:5px">
+        <a class="ui primary large button" href="/account/">Back to Dashboard</a>
+    </div>
+    <h1 div="header"> 
+        <%= @search.title %>
+    </h1>
+    <%= render "jobs", locals: { jobs: @jobs } %>
+</div>
+<% else %>
+<div class="ui container">
+    <div class="ui padded container" style="margin:5px">
+        <a class="ui primary large button" href="/account/">Back to Dashboard</a>
+    </div>
+    <h1 div="header"> 
+        <%= @search.title %>
+    </h1>
+</div>
+<div class="ui modal">
+  <div class="header">Your Search is Being Completed</div>
+  <div class="content">
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui text loader">Please Wait<br>(this can take a minute)</div>
+      </div>
+      <p style="min-height:100px"></p>
+    </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $(".modal").modal('setting', 'closable', false).modal('show');
+        setTimeout(function(){
+            isSearchComplete();
+        }, 5000);
+    });
+    function isSearchComplete(){
+        $.ajax({
+             url : "/searches/<%= @search.id %>/ready",
+             dataType: "script",
+        });
+        setTimeout(function(){
+            isSearchComplete();
+        }, 5000);
+    }
+</script>
+<% end %>

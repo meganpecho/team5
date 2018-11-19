@@ -1,0 +1,32 @@
+.findAJob {
+    &.container {
+        display: flex;
+        padding-top: 40px;
+        flex-flow: column wrap;
+        align-items: left;
+    }
+    .title {
+        
+    }
+    .btn-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    
+}
+
+.search-name {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #fff;
+    color: #000;
+    border-color: #00b5ad;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #00b5ad;
+}

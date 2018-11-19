@@ -1,0 +1,37 @@
+<div class="nav">
+	<div class="brandInfo">
+		<% if logged_in? %>
+			<%= link_to "SKILLMATIC", "/account", id: "home_btn", class: "name"%>
+        <% else %>
+            <%= link_to "SKILLMATIC", root_path, id: "home_btn", class: "name"%>
+		<% end %>
+		
+	</div>
+	<div class="button-ctn">
+		<div class="log-btn">
+			<% if logged_in? %>
+	        	<a class="ui inverted button" href="/logout">Logout</a>
+	        <% elsif request.env['PATH_INFO'] == "/login" %>
+	        	<a class="ui inverted button" href="/signup">Sign Up</a>
+	        <% else %>
+	            <a class="ui inverted button" href="/login">Login</a>
+			<% end %>
+		</div>
+		<div class="menu-btn">
+			<div class="menu-toggle" onclick="toggleActive()">
+				<span class="bars"></span>
+			</div>
+		</div>
+		<div class="links">
+			<ul>
+				<li><a href="/about">About</a></li>
+				<li><a href="/faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+				
+				<li><!--%= link_to "About", about_path, id: "nav_about", class: "li"%--></li>
+				<li><!--%= link_to "FAQ", faq_path, id: "nav_faq", class: "li"%--></li>
+				<li><!--%= link_to "Contact", contact_path, id: "nav_contact", class: "li"%--></li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+// Place all the styles related to the CourseFinder controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.skill-button input[type=checkbox] {
+    position   : absolute;
+    visibility : hidden;
+}
+
+.skill-button label {
+    background : #ffffff;
+}
+.skill-button input[type=checkbox]:checked ~ label {
+    background-color: #ff7701!important;
+    color: #fff!important;
+}
+.skill-button {
+    display:inline;
+}

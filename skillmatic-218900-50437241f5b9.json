@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "skillmatic-218900",
+  "private_key_id": "50437241f5b9eaee731475dc39671dd834810a07",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDBz9cUrHT2FOoU\ndDCdq86aemvoFl+yreMjUV7skYK6i8v6Zui5vzXg/3gl8iz+JvQhOaNZ2Xabbb+s\npicYv9jiwnCkJ+EG4HnCcYem5dSGDuf25m1CFGsLRSDacwltE78BpOUMsiL+g4+m\nGe8s6QvwaPtaUmilVnF6nYHOF+jkZVSg6NPtOPNOAiLduTskML9Tc/1QY8/mGi8x\nBP+xANvOqnb59xUMqXVR0yuI7DLPFWZMXPJsbbIZaK1Z0CwsSJmS6noaf+nlbZtv\nWZ2IVJYoOBbNTYlzupfPV8kU+h3y/FXoUxnh3jx2qpl+s7QcAp+8zU14W0kILYLE\n53r/4TaPAgMBAAECggEAB4QKmUmjq37dsBPQEQtwPUmRYztxG0SfqtkP9kxaQuc7\n0hia3nLqITD8UXRkMZvLjHln1wqym1UUwW/Gts0Y4F+dtfcPRJCrQP1rorYF0iSZ\nnZB9VbpW+TsFYCGBrUsTvJZAhPmhQf9u92usfKIjm5vYYMwu31tosu7mRr4NgsQM\nI7LC814W0G9Ztgu8Pj39nIDReg+UdpGvu2Px1PfXQyKfLce1qKiyqWV603AKtBb8\n00Iu48el5jOOr7Sjfdl2P0GdILfrmjTswOyPx1UhxQ1SzfvuWUmqqNtvFwu3SYGC\n+VdL2K93cE26Q9dNfef4Io9r1tnfRsbtDd170t+pQQKBgQDiSn2K2v4A9kCysmk7\nuAeX7m2YGJrvTpFLTxfc63mo1ZA14TtPGF9yvu6x5ovJtgQlPeFj1YFyrS93CdQF\nvs+qA1kV185wqa/Z1gRAA4E+/fOkH7gqKaZAKYN4rNvTyO/6K9MI2hrt0u1KQAas\ntaL+Mk2n4aOdw3BWqXn55IIKYQKBgQDbQb7tQm5j5wLGYGtg4CUMxkabdNrgqp0V\njp8agmKiHUa+z+T7zsgUpqTKktroEl86UQIpid/eLWlT47CSS0MuUllnKM/cm4y0\nZWocsWExF81PUwrkB5W3/mUxE3rTwByVYUdZCCU/xu76uEGELvhmoLFYSkUdZcIO\n06/zTING7wKBgB9cyZeEEG4bsw3RMkqHj+3bqq7IwjhmgDaayKjireLbbng5NhoZ\nO6lQkw5u8HLNWje7ItDOV3mITSrHXu5I6skaW69uUHtG2UtsoPwqQDB1y920U7bs\nPNFpr4H7GyB4GeJnToFMkSzi7eY7h3FKX0OxvxeEa0PDQX+RT4l1xRwhAoGAK4kZ\ndRjsvG+BUIySpbC8CpZQLMv+LgASotYn52aeWRxBEOBM0mcTuW4BaKvSRaRoPjcZ\nm8/hoMcZk+uxAsto8oitcdtbsq08OhGtCTd7Wfkk7ixKDE8pPliIFT+N8v/BbTPc\nq+P/KXPBvgzaDXoaHp6nuCU/JgAvkSwdUs0NgAcCgYB1RU9kxtIinn6/BbeE38Ni\nLH/U2BbVZrd293fqNo3i6nnxbE7UkIzOSEv0lEyliFdTW/cQh5Y60yScyo3Oueqt\n4kQ4xg6IG//rww88HfgU8qp4ZcGa40AfMYVk4C06Bsni/+c5QE5745go/1KraSkE\nDrj1bwQHlbk8X0XPCyysvw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "skillmatic@skillmatic-218900.iam.gserviceaccount.com",
+  "client_id": "113478416742345039741",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/skillmatic%40skillmatic-218900.iam.gserviceaccount.com"
+}

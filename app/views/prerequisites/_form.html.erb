@@ -1,0 +1,34 @@
+<%= form_with(model: prerequisite, local: true) do |form| %>
+  <% if prerequisite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prerequisite.errors.count, "error") %> prohibited this prerequisite from being saved:</h2>
+
+      <ul>
+      <% prerequisite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <select name="prerequisite[course_id]" class="course_select"></select>
+  </div>
+
+  <div class="field">
+    <%= form.label :prerequisite_id %>
+    <select name="prerequisite[prerequisite_id]" class="prerequisite_select"></select>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+  var courses = <%= @courses.html_safe %>;
+  
+  $('.course_select').select2({ data: courses.results });
+  $('.prerequisite_select').select2({ data: courses.results });
+</script>

@@ -1,0 +1,22 @@
+.jobSearch {
+    &.container {
+        display: flex;
+        padding-top: 40px;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    &.btn-container {
+        display: flex;
+        flex-flow: row wrap;
+        padding-top: 20px;
+        align-items: center;
+        :first-child {
+            padding-left: 85px;
+            padding-right: 85px;
+        }
+        p.or {
+            padding: 0 60px;
+        }
+    }
+    
+}

@@ -1,0 +1,119 @@
+@import 'grid';
+@import 'mixins';
+@import 'button';
+
+h1 {
+    font-family: $h1;
+    font-size: 70px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: black;
+    }
+}
+
+h3 {
+    font-family: $h1;
+    font-size: 40px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: black;
+    }
+}
+
+h4 {
+    font-family: $h4;
+    font-size: 40px;
+    
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: $nav;
+    }
+    &.home {
+        color: $nav;
+        text-shadow: #fff 0px 0px 14px;
+    }
+}
+
+h5 {
+    font-family: $h4;
+    font-size: 30px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: black;
+    }
+}
+
+p {
+    font-size: 15px;
+    font-family: $p;
+    margin-bottom: 2px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: black;
+    }
+    &.courses-list {
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+hr {
+    border: 3px solid black;
+    border-radius: 1px;
+    &.blue {
+        border-color: $nav;
+    }
+}
+
+.jumbotron {
+    height: 100vh;
+    width: 100%;
+    background: white;
+    text-align: CENTER;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 100%), url(asset-path('student.jpg'));
+    background-size: cover;
+    .jumbo-screen {
+        position: relative;
+        .jumbotron-content {
+            padding: 100px;
+            h4 {
+                letter-spacing: 1.4px;
+            }
+            .btn-container {
+                padding-top: 40px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.footer {
+	background-color: $nav;
+	height: 50px;
+	display: flex;
+	justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    p.light {
+        color: white;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 540px) {
+    .jumbotron .jumbotron-content {
+        padding: 0px;
+    }
+}

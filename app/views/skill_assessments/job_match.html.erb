@@ -1,0 +1,109 @@
+<p id="notice"><%= notice %></p>
+<div class="dashboardHeader">
+  <h3>Find a Job</h3>
+  <hr class="blue"/>
+</div>
+<div class="ui container">
+    <div class="findAJob container">
+        <div class="title">
+        	<div class="ui attached message">
+  				<div class="header">
+            		<h2>Let's build your class path to find a job that would be a good fit for your skills. Take a look at your listed courses to make sure you haven't missed any!</h2>
+            	</div>
+            </div>
+            <div class="ui styled fluid accordion">
+              <% current_user.courses.each do |course|%>
+              <% active = current_user.courses.first == course ? 'active' : '' %>
+               <div class="<%= active %> title"><%= course.full_title %></div>
+               <div class="<%= active %> content"> 
+                   <% course.skills.each do |skill| %>
+						<div class="row">
+                       		<%=  skill.name  %><br>
+                        </div>
+                   <% end %>
+               </div>
+              <% end %>
+            </div>
+            <div class="btn-container">
+                <h4><a class="huge ui inverted secondary button" href="/courses/add">Update Completed Classes</a></h4>
+            </div>
+        </div>
+       
+        <div class="ui divider"></div>
+        <h2>Are there any other skills you would want to apply for your future job?</h2>
+        <div class="segment">
+            <%= form_tag("/assessment/results", method: "post", remote: true, id: "skills_form") do %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                <div class="ui input">
+                    <select name="skills[]" multiple="multiple" class="skills_dropdown">
+                        <option value="">Pick the skills</option>
+                        <% Skill.all.each do |skill| %>
+                            <option value="<%= skill.id %>"><%= skill.name %></option>
+                        <% end %>
+                    </select>
+                </div>
+                <br>
+                <div class="search-name">
+                    <h2>Name your search:</h2>
+                    <div class="ui left icon input">
+                        <input type="text" name="title" placeholder="Name">
+                        <i class="plus square icon"></i>
+                    </div>
+                </div>
+                <div class="btn-container" >
+                    <h3><button class="huge ui green button" id="jobsearch" type="submit">Find a job</button></h3>
+                </div>
+            <% end %>
+        </div>
+
+<!--
+migration to add title to saved searches
+
+rails generate migration AddTitleToJobSearches title:string
+
+text input for job match (this) page
+when it created the saved search from the match, when it does the creating part it adds the title from the 
+paramerter passed
+the code i used on the student dashboard to number courses, can use to fill in the name automatically, if they don't
+use the unique identifer, number of times they've searches as the unique id number,
+replace the saved search with a name, in 
+@searches = JobSearch.where(:user_id => current_user.id).count:id
+
+
+disallow clicking outside of modal - done
+
+-->
+    </div>
+</div>
+</br>
+<div class="ui modal">
+  <div class="header">Your Search is Being Completed</div>
+  <div class="content">
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui text loader">Please Wait</div>
+      </div>
+      <p style="min-height:100px"></p>
+    </div>
+  </div>
+</div>
+
+ <script>
+   $('.skills_dropdown').select2({
+     multiple: true,
+     placeholder: "Skills"
+   });
+   
+   $('.accordion').accordion();
+   $('#jobsearch').click(function(event){
+       $('#jobsearch').prop('disabled', 'disabled');
+       $(".modal").modal('setting', 'closable', false).modal('show');
+       $.ajax({
+             url : "/assessment/results",
+             data : $("#skills_form").serialize(),
+             dataType: "script",
+        });
+   });
+ </script>
+ 
+ 

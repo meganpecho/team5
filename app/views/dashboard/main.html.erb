@@ -1,0 +1,55 @@
+<div class="ui container">
+  <h3 class="dashboardHeader">FACULTY DASHBOARD</h3>
+  <hr class="blue" />
+  <h2 class="ui header"> Download Student Data: </h2>
+  <h5><a href="/dashboard/stats/users"><button class="huge ui inverse secondary button">Download Student Files</button></a></h5>
+  <h5><a href="/dashboard/stats/courses"><button class="huge ui inverse secondary button">Download Course Info</button></a></h5>
+    <div class="FacultyBody" align='left'>
+      <h3 class="ui header"> <i class="clipboard list icon"></i> Student List: </h3>
+      <table id="dataTable" class="ui celled table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Major</th>
+            <th>Email</th>
+            <th>Courses Taken</th>
+            <th>Download CSV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.major_title %></td>
+            <td><%= user.email %></td>
+            <td><% user.courses.each do |course|%>
+               <p><%= course.full_title %></p>
+                <% end %>
+            </td>
+            <td><a href="/dashboard/stats/user/<%= user.id %>"><button class="huge ui inverse secondary button">Download Student's File</button></a></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+  <br>
+  <br>
+  
+  <script>
+   $(document).ready(function() {
+        $('#dataTable').DataTable();
+    } );
+    
+    var obj = JSON.parse(user.course_ids, function (key, value) {
+    if (key == "user.course_ids") {
+        return title(value);
+    } else {
+        return value;
+    }});
+  </script>
+  
+</div>
+
+
+  

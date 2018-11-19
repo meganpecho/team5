@@ -1,0 +1,35 @@
+<%= form_with(model: course_skill, local: true) do |form| %>
+  <% if course_skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course_skill.errors.count, "error") %> prohibited this course_skill from being saved:</h2>
+
+      <ul>
+      <% course_skill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :course_id %>
+    <select name="course_skill[course_id]" class="course_select"></select>
+  </div>
+
+  <div class="field">
+    <%= form.label :skill_id %>
+    <select name="course_skill[skill_ids][]" class="skill_select"></select>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<script>
+  var skills = <%= raw @skills %>;
+  var courses = <%= raw @courses %>;
+  
+  $('.course_select').select2({ data: courses.results });
+  $('.skill_select').select2({ data: skills.results, multiple: true });
+  
+</script>

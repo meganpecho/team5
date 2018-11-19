@@ -1,0 +1,1 @@
+jobsearchworker: AUTHENTIC_KEY="208b24e3a0f8b9f1993ef62327de46b8" bundle exec sidekiq -c 2

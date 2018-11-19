@@ -1,0 +1,21 @@
+<% provide(:flash, true) %>
+<div class="jumbotron">
+    <div class="jumbo-screen">
+        <div class="jumbotron-content">
+            <% flash.each do |key, value| %>
+              <div class="ui <%= key %> message"><%= value %></div>
+            <% end %>
+            <h4 class="home">
+                MATCH SKILLS YOU LEARN IN
+                CLASS TO REAL LIFE JOBS <br/>
+                - OR - <br/>
+                BUILD THE PERFECT SCHEDULE TO
+                HELP YOU LEARN THE SKILLS YOU
+                NEED TO GET YOUR DREAM JOB
+            </h4>
+            <div class="btn-container">
+                <a class="massive ui teal button" id="signup-btn" href="/signup">Get Started</a>
+            </div>
+        </div>
+    </div>
+</div>

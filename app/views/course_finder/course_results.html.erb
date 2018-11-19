@@ -1,0 +1,12 @@
+<div class="ui container">
+    <a class="ui primary large button" href="/account/" style="margin: 5px;">Back to Dashboard</a>
+    <div class="header"> 
+        <h4>These are the courses we recommended you take: </h4>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui section">
+        <% @courses.each do |course| %>
+            <p><%= course.full_title %></p>
+        <% end %>
+    </div>
+</div>

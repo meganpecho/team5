@@ -1,0 +1,111 @@
+<div id="searchable">
+<div class="dashboardHeader">
+  <h3>Add Courses Taken</h3>
+  <hr class="blue"/>
+  <div class="ui form searchClasses">
+            <div class="field searchBar">
+                <div class="ui icon input">
+                    <input class="prompt search" type="text" placeholder="Search for Courses">
+                    <i class="search icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <div class="teal ui buttons">
+                    <button class="ui button sort" data-sort="search_help">Sort by Subject</button>
+                    <button class="ui button sort" data-sort="class_num">Sort by Class Number</button>
+                </div>
+            </div>
+            <div class="field">
+                <!--<div class="submitCoursesContainer">-->
+                    <button class="ui orange button" onclick="submit()">Submit Courses</button>
+                <!--</div>-->
+            </div>
+        </div>
+</div>
+    <div class="ui container">
+        <div class="ui stackable three column grid classLists">
+            <ul class="ui raised segment list column"></ul>
+            <ul class="ui raised segment list added column">
+                <% if @u_courses %>
+                    <% @u_courses.each do |course_id, course| %>
+                        <li onclick="remove($(this))" class="item">
+                            <p class="courses-list">
+                                <span class="class_type"><%= course[:class_type] %></span> 
+                                <span class="class_num"><%= course[:class_num] %></span> 
+                                <span class="class_name"><%= course[:class_name] %></span>
+                                <span class="class_id" style="display:none;"><%= course[:class_id] %></span>
+                                <span class="search_help" style="display:none;"><%= course[:search_help] %><span>
+                            </p>
+                        </li>
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    var values = <%= @courses.html_safe %>;
+
+    var options = {
+      valueNames: [ 'class_type', 'class_name', 'class_num', 'class_id', 'search_help' ],
+      item: '<li onclick="add($(this))" class="item"><p class="courses-list"><span class="class_type"></span> <span class="class_num"></span> <span class="class_name"></span><span class="class_id" style="display:none;"></span><span class="search_help" style="display:none;"><span></p></li>'
+    };
+    
+    var userList = new List('searchable', options, values);
+
+    var chosen = <%= @u_courses.to_json.html_safe %>;
+    function add(el){
+        var id = el.find(".class_id").html();
+        var type = el.find(".class_type").html();
+        var num = el.find(".class_num").html();
+        var name = el.find(".class_name").html();
+        var search = el.find(".search_help").html();
+        chosen[id] = {
+            class_id: id,
+            class_type: type,
+            class_num: num,
+            class_name: name,
+            search_help: search
+        };
+        console.log(chosen[id]);
+        userList.remove("class_id", id);
+        
+        $('.added').append(el).find("li").last().attr("onclick", "remove($(this))");
+
+    }
+    function remove(el){
+        var id = el.find(".class_id").html();
+        console.log(id);
+        console.log(chosen[id]);
+        userList.add([chosen[id]], function(){
+            el.remove();
+            delete chosen[id];
+        });
+        
+    }
+    function submit(){
+        var form;
+        form = $('<form />', {
+            action: "",
+            method: "POST",
+            style: 'display: none;'
+        });
+        if (typeof chosen !== 'undefined' && chosen !== null) {
+            $('<input />', {
+                type: 'hidden',
+                name: 'authenticity_token',
+                value: $('meta[name=csrf-token]').attr('content')
+            }).appendTo(form);
+            $.each(chosen, function (name, value) {
+                $('<input />', {
+                    type: 'hidden',
+                    name: 'class' + value.class_id,
+                    value: value.class_id
+                }).appendTo(form);
+            });
+        }
+        form.appendTo('body').submit();
+    }
+</script>
+

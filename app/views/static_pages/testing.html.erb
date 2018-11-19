@@ -1,0 +1,18 @@
+<div class="ui container">
+    <h1>Job search for</h1>
+    <h3><%= @query.titleize %></h3>
+    <% @response['listings']['listing'].each do |listing| %>
+        <h3><%= listing['title'] %></h3>
+        <h5>At <%= listing['company']['name'] %></h5>
+        <% if listing['company']['logo'] && (listing['company']['logo'].gsub("https://d2fcz5no062gar.cloudfront.net","").include?("http://") || listing['company']['logo'].gsub("https://d2fcz5no062gar.cloudfront.net","").include?("https://"))%><img src="<%= listing['company']['logo'].gsub("https://d2fcz5no062gar.cloudfront.net","") %>"><% end %>
+        <p>Perks: <% if listing['perks'] && !listing['perks'].empty? %><%= listing['perks'] %><% else %>No perks listed <% end %></p>
+        <p>Category: <%= listing['category']['name'] %></p>
+        <p>Company: <%= listing['company']['name'] %></p>
+        <% if listing['company']['location'] %><p>Location: <%= listing['company']['location']['name'] %></p><% end %>
+        <p><a href="<%= listing['url'] %>">Job Link</a></p>
+        
+        <%= listing['description'].html_safe %><br>
+        
+        <br><br><br><br>
+    <% end %>
+</div>

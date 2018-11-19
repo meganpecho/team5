@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+<div class="dashboardHeader">
+  <h3>Find Courses</h3>
+  <hr class="blue"/>
+</div>
+<div class="ui container">
+    <div class="findCourses container">
+      <div class="title">
+        <h2>CHOOSE WHAT SKILLS YOU WANT TO LEARN:</h2>
+      </div>
+      <!--<div class="btn-container" >-->
+      <!--  <a class="huge ui inverted secondary button" href="/assessment/results">RECOMMEND CLASSES</a>-->
+      <!--</div>-->
+      <!--<div class="ui form searchClasses">-->
+      <!--      <div class="field searchBar">-->
+      <!--          <div class="ui icon input">-->
+      <!--              <input class="prompt search" type="text" placeholder="Search for Skills">-->
+      <!--          </div>-->
+      <!--      </div>-->
+      <!--      <div class="field">-->
+      <!--          <div class="teal ui buttons">-->
+      <!--              <button class="ui button sort" data-sort="search_help">Search</button>-->
+      <!--          </div>-->
+      <!--      </div>-->
+      <!--  </div>-->
+      <!--<div class="items">-->
+      <%= form_tag("/courses/find", method: "post", id: "skills_form") do %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <% Skill.all.each do |skill| %>
+            <div class="skill-button">
+              <input type="checkbox" id="skill-<%= skill.id %>" name="skill-<%= skill.id %>">
+              <label for="skill-<%= skill.id %>" class="tiny circular ui inverted orange button"><%= skill.name %></label>
+            </div>
+          <% end %>
+          <div class="btn-container" >
+              <h3><input class="huge ui green button" id="findClasses" type="submit" value="Recommend Classes"></h3>
+          </div></br>
+      <% end %>
+      </div>
+</div>
+
+<script>
+  $( ".ui button" ).click(function() {
+    var isActive = $(this).hasClass('active');
+    if(isActive) $(this).removeClass('active');
+    else $(this).addClass('active');
+  });
+  
+  // $('.accordion').accordion();
+  // $('#findClasses').click(function(event){
+  //     $('#findClasses').prop('disabled', 'disabled');
+  //     $(".modal").modal('setting', 'closable', false).modal('show');
+  //     $.ajax({
+  //           url : "/assessment/results",
+  //           data : $("#skills_form").serialize(),
+  //           dataType: "script"
+  //       });
+  // });
+  
+  
+</script>
+        
+

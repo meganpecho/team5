@@ -1,0 +1,44 @@
+<div class="sessionform ui container middle aligned center aligned grid">
+  <div class="column">
+    <%= form_with(model: user, url: signup_path, html: { class: "ui large stacked segment form"}) do |form| %>
+        <h2> SIGN UP FOR AN ACCOUNT</h2>
+          
+        <div class="field">
+          <%= form.label :name %>
+          <%= form.text_field :name, id: :user_name %>
+        </div>
+        
+      
+        <div class="field">
+          <%= form.label :email %>
+          <%= form.text_field :email, id: :user_email %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :major %>
+          <select name="user[major_id]" class="major_select"></select>
+        </div>
+        
+        <div class="field">
+          <%= form.label :password %>
+          <%= form.password_field :password %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :password_confirmation, "Confirmation" %>
+          <%= form.password_field :password_confirmation %>
+        </div>
+      
+        <div class="actions">
+          <%= form.submit "Sign up", class:"ui primary button" %>
+        </div>
+      
+    <% end %>
+  </div>
+</div>
+
+<script>
+  var majors = <%= @majors.html_safe %>;
+  
+  $('.major_select').select2({ data: majors.results });
+</script>

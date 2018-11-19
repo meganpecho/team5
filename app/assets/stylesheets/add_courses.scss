@@ -1,0 +1,55 @@
+.ui.form.searchClasses {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.ui.form .field.searchBar {
+    width: 50%;
+}
+
+.ui.container .searchable {
+    margin-bottom: 60px;
+}
+
+.ui.stackable.three.column.grid.classLists {
+    padding-top: 20px;
+    margin: 0;
+}
+
+.list li:hover {
+    background-color: #cccccc !important;
+}
+
+.ui.raised.segment.list.column {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 10px;
+    width: 50% !important;
+    ul {
+        list-style: none;
+    }
+}
+ul.ui.raised.segment.list.added.column{
+    margin-left:2rem;
+    margin-bottom:2rem;
+}
+.ui.raised.segment.list.added.column {
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 10px;
+    width: 45% !important;
+    ul {
+        list-style: none;
+    }
+}
+
+.submitCoursesContainer {
+    padding: 30px 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}

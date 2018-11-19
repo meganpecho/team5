@@ -1,0 +1,9 @@
+<% if @errors %>
+    unflash();
+    <% @errors.each do |error| %>
+    flash("error", "<%= error %>");
+    <% end %>
+<% end %>
+<% if @redirect %>
+window.location.replace("<%= @redirect %>");
+<% end %>
